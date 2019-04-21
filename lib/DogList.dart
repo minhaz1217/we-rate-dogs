@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 
-import 'DogCard.dart';
 import 'Dog.dart';
+import 'DogCard.dart';
 
 class DogList extends StatelessWidget{
 
@@ -18,7 +18,8 @@ class DogList extends StatelessWidget{
         itemCount : dogs.length,
         itemBuilder: (context, int){
           return DogCard(dogs[int]);
-        });
+        }
+        );
   }
 }
 

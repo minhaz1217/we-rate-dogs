@@ -1,4 +1,5 @@
 import "package:flutter/material.dart";
+import 'package:t_we_rate_dogs/AddDog.dart';
 import "Dog.dart";
 import 'DogList.dart';
 import 'CONSTANTS.dart';
@@ -44,9 +45,16 @@ class _MyHomePageState extends State<MyHomePage>{
       appBar: AppBar(
         title: Text(widget.title),
         backgroundColor: APPBAR,
+        actions: <Widget>[
+          IconButton(
+            icon: Icon(Icons.add),
+            onPressed: _showNewDogForm,
+          ),
+        ],
       ),
       body: Container(
         child: DogList(dogs),
+//        child:/**/ AddDog(),
         decoration: BoxDecoration(
           gradient: LinearGradient(
             begin: Alignment.topRight,
@@ -63,5 +71,16 @@ class _MyHomePageState extends State<MyHomePage>{
       ),
     );
   }
-
+  Future _showNewDogForm() async{
+    Dog newDog = await Navigator.of(context).push(
+      MaterialPageRoute(
+        builder: (BuildContext context){
+          return AddDog();
+        }
+      ),
+    );
+    if(newDog != null){
+      dogs.add(newDog);
+    }
+  }
 }

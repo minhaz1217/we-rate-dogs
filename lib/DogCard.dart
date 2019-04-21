@@ -1,13 +1,14 @@
 import "package:flutter/material.dart";
-import 'DogDetailPage.dart';
 
 import "Dog.dart";
+import 'DogDetailPage.dart';
+
 import 'CONSTANTS.dart';
 class DogCard extends StatefulWidget{
   final Dog dog;
   DogCard(this.dog);
   @override
-  _DogCardState createState() => _DogCardState(dog);
+  _DogCardState createState() => _DogCardState(this.dog);
 
 }
 class _DogCardState extends State<DogCard>{
