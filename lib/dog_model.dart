@@ -8,10 +8,7 @@ class Dog{
   String imageUrl;
   int rating = 10;
 
-  Dog(this.name, this.location, this.description){
-    imageUrl = "NOPE";
-    getImageUrl();
-  }
+  Dog(this.name, this.location, this.description);
   Future getImageUrl() async{
     if(imageUrl != null){
       return;

@@ -1,4 +1,5 @@
 import "package:flutter/material.dart";
+import 'package:t_we_rate_dogs/dog_card.dart';
 import "dog_model.dart";
 void main() => runApp(MyApp());
 
@@ -42,9 +43,7 @@ class _MyHomePageState extends State<MyHomePage>{
         title: Text(widget.title),
       ),
       body: Container(
-        child: Center(
-          child: Text("Name: "+ dogs[0].name + "\nAddress: " + dogs[0].location + "\nDescription: " + dogs[0].description + "\nImage: " + dogs[0].imageUrl),
-        ),
+        child: DogCard(dogs[0]),
       ),
     );
   }
