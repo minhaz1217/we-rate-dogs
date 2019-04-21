@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:t_we_rate_dogs/Dog.dart';
 import 'CONSTANTS.dart';
 
 class AddDog extends StatefulWidget{
@@ -8,6 +9,12 @@ class AddDog extends StatefulWidget{
 
 
 class _AddDogState extends State<AddDog>{
+  TextEditingController nameController = TextEditingController();
+  TextEditingController locationController = TextEditingController();
+  TextEditingController descriptionController = TextEditingController();
+
+
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -29,14 +36,17 @@ class _AddDogState extends State<AddDog>{
                   decoration: InputDecoration(
                     labelText: "Name the pup",
                   ),
-                )
+                  onChanged: (v)=> nameController.text = v,
+                ),
               ),
               Padding(
                 padding: const EdgeInsets.only(bottom: 8.0),
                 child: TextField(
                     decoration: InputDecoration(
                       labelText: "Pup's location",
-                    )),
+                    ),
+                    onChanged: (v)=> locationController.text = v
+                ),
               ),
               Padding(
                 padding: const EdgeInsets.only(bottom: 8.0),
@@ -44,6 +54,7 @@ class _AddDogState extends State<AddDog>{
                   decoration: InputDecoration(
                     labelText: 'All about the pup',
                   ),
+                  onChanged: (v)=> descriptionController.text = v
                 ),
               ),
               Padding(
@@ -51,7 +62,7 @@ class _AddDogState extends State<AddDog>{
                 child: Builder(
                   builder: (context){
                     return RaisedButton(
-                      onPressed: ()=>print("Pressed"),
+                      onPressed: ()=>submitPup(context),
                       color: BUTTONCOLOR,
                       child: Text("Submit Pup"),
                     );
@@ -63,6 +74,14 @@ class _AddDogState extends State<AddDog>{
         ),
       ),
     );
+  }
+  void submitPup(BuildContext context){
+    if(nameController.text.isEmpty){
+      print("Dogs need names");
+    }else{
+      var newDog = Dog(nameController.text, locationController.text, descriptionController.text);
+      Navigator.of(context).pop(newDog);
+    }
   }
 
 }
