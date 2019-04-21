@@ -47,6 +47,19 @@ class _MyHomePageState extends State<MyHomePage>{
       ),
       body: Container(
         child: DogList(dogs),
+        decoration: BoxDecoration(
+          gradient: LinearGradient(
+            begin: Alignment.topRight,
+            end: Alignment.bottomLeft,
+            stops : [0.1,0.5,0.7,0.9],
+            colors:[
+              Colors.blue[700],
+              Colors.blue[400],
+              Colors.blue[700],
+              Colors.blue[400],
+            ],
+          ),
+        ),
       ),
     );
   }
