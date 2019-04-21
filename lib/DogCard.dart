@@ -1,7 +1,7 @@
 import "package:flutter/material.dart";
 
-import "dog_model.dart";
-import 'main.dart';
+import "Dog.dart";
+import 'CONSTANTS.dart';
 class DogCard extends StatefulWidget{
   final Dog dog;
   DogCard(this.dog);
@@ -44,7 +44,7 @@ class _DogCardState extends State<DogCard>{
       width: 290.0,
       height: 115.0,
       child : Card(
-        color: PRIMARY_COLOR,
+        color: CARD_COLOR,
         child: Padding(
           padding: const EdgeInsets.only(
             top: 8.0,
