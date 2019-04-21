@@ -1,6 +1,9 @@
 import "package:flutter/material.dart";
 import 'package:t_we_rate_dogs/dog_card.dart';
 import "dog_model.dart";
+import 'dogList.dart';
+
+final PRIMARY_COLOR = Colors.pink;
 void main() => runApp(MyApp());
 
 
@@ -41,9 +44,10 @@ class _MyHomePageState extends State<MyHomePage>{
     return Scaffold(
       appBar: AppBar(
         title: Text(widget.title),
+        backgroundColor: PRIMARY_COLOR,
       ),
       body: Container(
-        child: DogCard(dogs[0]),
+        child: DogList(dogs),
       ),
     );
   }
