@@ -1,4 +1,5 @@
 import "package:flutter/material.dart";
+import 'DogDetailPage.dart';
 
 import "Dog.dart";
 import 'CONSTANTS.dart';
@@ -76,23 +77,35 @@ class _DogCardState extends State<DogCard>{
   }
   @override
   Widget build(BuildContext context){
-    return Padding(
-      padding: const EdgeInsets.symmetric(horizontal: 16.0, vertical: 8.0),
-      child: Container(
-        height: 115.0,
-        child: Stack(
-          children: <Widget>[
-            Positioned(
-              left: 50.0,
-              child: dogCard,
-            ),
-            Positioned(
-              top: 7.5,
-              child: dogImage,
-            )
-          ],
+    return InkWell(
+      onTap: showDogDetailPage,
+        child: Padding(
+        padding: const EdgeInsets.symmetric(horizontal: 16.0, vertical: 8.0),
+        child: Container(
+          height: 115.0,
+          child: Stack(
+            children: <Widget>[
+              Positioned(
+                left: 50.0,
+                child: dogCard,
+              ),
+              Positioned(
+                top: 7.5,
+                child: dogImage,
+              )
+            ],
+          ),
         ),
       ),
+    );
+  }
+  showDogDetailPage(){
+    Navigator.of(context).push(
+      MaterialPageRoute(
+        builder: (context){
+          return DogDetailPage(dog);
+        }
+      )
     );
   }
 }
