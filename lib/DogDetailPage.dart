@@ -168,7 +168,11 @@ class _DogDetailPageState extends State<DogDetailPage>{
   void updateRating(){
 
     setState( (){
-      widget.dog.rating = _sliderValue.toInt();
+      if(_sliderValue < 10){
+        _ratingErrorDialog();
+      }else{
+        widget.dog.rating = _sliderValue.toInt();
+      }
 //      print("New Rating: " + widget.dog.rating .toString());
 
     });
@@ -189,5 +193,22 @@ class _DogDetailPageState extends State<DogDetailPage>{
       ),
     );
   }
-
+  Future<Null> _ratingErrorDialog() async{
+    return showDialog(
+      context: context,
+      builder: (BuildContext context){
+        return AlertDialog(
+          title: Text("Error!!"),
+          content: Text('They are all good dogs, Carol'),
+          actions: <Widget>[
+            FlatButton(
+              child: Text('Try again'),
+              onPressed: ()=>Navigator.of(context).pop(),
+            ),
+          ],
+        );
+      },
+    );
+  }
 }
+

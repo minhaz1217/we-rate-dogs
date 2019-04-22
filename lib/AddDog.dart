@@ -77,7 +77,12 @@ class _AddDogState extends State<AddDog>{
   }
   void submitPup(BuildContext context){
     if(nameController.text.isEmpty){
-      print("Dogs need names");
+      Scaffold.of(context).showSnackBar(
+        SnackBar(
+          backgroundColor: INFO_TOAST_COLOR,
+          content: Text("Pups need names!!"),
+        ),
+      );
     }else{
       var newDog = Dog(nameController.text, locationController.text, descriptionController.text);
       Navigator.of(context).pop(newDog);
