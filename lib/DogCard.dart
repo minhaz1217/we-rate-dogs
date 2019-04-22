@@ -17,16 +17,19 @@ class _DogCardState extends State<DogCard>{
   String renderUrl;
   _DogCardState(this.dog);
   Widget get dogImage{
-    var dogAvatar =  Container(
-      width: 100.0,
-      height: 100.0,
-      decoration: BoxDecoration(
-        shape: BoxShape.circle,
-        image: DecorationImage(
-          fit: BoxFit.cover,
-          image: NetworkImage(renderUrl??""),
+    var dogAvatar =  Hero(
+        tag: dog,
+        child: Container(
+          width: 100.0,
+          height: 100.0,
+          decoration: BoxDecoration(
+            shape: BoxShape.circle,
+            image: DecorationImage(
+              fit: BoxFit.cover,
+              image: NetworkImage(renderUrl??""),
+            ),
+          ),
         ),
-      ),
     );
     var placeHolder =  Container(
       width: 100.0,
@@ -46,11 +49,11 @@ class _DogCardState extends State<DogCard>{
       ),
     );
     return AnimatedCrossFade(
-      firstChild: placeHolder,
-      secondChild: dogAvatar,
-      crossFadeState: renderUrl == null ? CrossFadeState.showFirst : CrossFadeState.showSecond,
-      duration: Duration(microseconds: 1000),
-    );
+          firstChild: placeHolder,
+          secondChild: dogAvatar,
+          crossFadeState: renderUrl == null ? CrossFadeState.showFirst : CrossFadeState.showSecond,
+          duration: Duration(microseconds: 1000),
+        );
   }
   void initState(){
     super.initState();

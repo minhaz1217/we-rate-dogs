@@ -1,4 +1,6 @@
 import 'package:flutter/material.dart';
+import 'package:flutter/scheduler.dart' show timeDilation;
+
 import 'Dog.dart';
 import 'CONSTANTS.dart';
 class DogDetailPage extends StatefulWidget{
@@ -179,18 +181,22 @@ class _DogDetailPageState extends State<DogDetailPage>{
   }
   @override
   Widget build(BuildContext context) {
-    return Scaffold(
-      backgroundColor: APPBAR,
-        appBar: AppBar(
+    timeDilation = 2.0;
+    return Hero(
+        tag: widget.dog,
+        child: Scaffold(
           backgroundColor: APPBAR,
-            title: Text('Meet ${widget.dog.name}'),
-        ),
-      body: ListView(
-        children: <Widget>[
-          dogProfile,
-          addYourRating,
-        ],
-      ),
+            appBar: AppBar(
+              backgroundColor: APPBAR,
+                title: Text('Meet ${widget.dog.name}'),
+            ),
+          body: ListView(
+            children: <Widget>[
+              dogProfile,
+              addYourRating,
+            ],
+          ),
+        )
     );
   }
   Future<Null> _ratingErrorDialog() async{
