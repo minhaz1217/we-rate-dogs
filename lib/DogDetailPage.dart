@@ -13,7 +13,7 @@ class DogDetailPage extends StatefulWidget{
 class _DogDetailPageState extends State<DogDetailPage>{
 
   final double dogAvatarSize = 150.0;
-
+  double _sliderValue = 10.0;
   Widget get dogImage{
     return Container(
       height: dogAvatarSize,
@@ -67,7 +67,51 @@ class _DogDetailPageState extends State<DogDetailPage>{
       ],
     );
   }
-
+  Widget get addYourRating{
+    return Column(
+      children: <Widget>[
+        Container(
+          padding: EdgeInsets.symmetric(
+            vertical: 16.0,
+            horizontal: 16.0,
+          ),
+          child: Row(
+            mainAxisAlignment: MainAxisAlignment.spaceAround,
+            children: <Widget>[
+              Flexible(
+                flex: 1,
+                child: Slider(
+                  activeColor: SLIDERACTIVECOLOR,
+                  min: 0.0,
+                  max: 15.0,
+                  onChanged: (newRating){
+                    setState(()=> _sliderValue = newRating);
+                  },
+                  value: _sliderValue,
+                ),
+              ),
+              Container(
+                width: 50.0,
+                alignment: Alignment.center,
+                child: Text(
+                  '${_sliderValue.toInt()}',
+                  style: Theme.of(context).textTheme.display1,
+                ),
+              ),
+            ],
+          ),
+        ),
+        submitRatingButton,
+      ],
+    );
+  }
+  Widget get submitRatingButton{
+    return RaisedButton(
+      onPressed: ()=> updateRating(),
+      child: Text("Submit"),
+      color: RATINGBUTTONCOLOR,
+    );
+  }
   Widget get dogProfile{
     return Container(
       padding: EdgeInsets.symmetric(
@@ -121,7 +165,14 @@ class _DogDetailPageState extends State<DogDetailPage>{
     );
   }
 
+  void updateRating(){
 
+    setState( (){
+      widget.dog.rating = _sliderValue.toInt();
+//      print("New Rating: " + widget.dog.rating .toString());
+
+    });
+  }
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -130,7 +181,12 @@ class _DogDetailPageState extends State<DogDetailPage>{
           backgroundColor: APPBAR,
             title: Text('Meet ${widget.dog.name}'),
         ),
-      body: dogProfile,
+      body: ListView(
+        children: <Widget>[
+          dogProfile,
+          addYourRating,
+        ],
+      ),
     );
   }
 
