@@ -1,16 +1,52 @@
-# t_we_rate_dogs
+# We rate dogs
 
 We rate dogs, built from tutorial.From here: https:&#x2F;&#x2F;flutterbyexample.com&#x2F;basic-dogs-app-setup 
 
-## Getting Started
+## Progression
 
-This project is a starting point for a Flutter application.
+1. A single card
 
-A few resources to get you started if this is your first Flutter project:
+   ![A single card](https://raw.githubusercontent.com/minhaz1217/we-rate-dogs/master/__IMAGES__/01.png)
 
-- [Lab: Write your first Flutter app](https://flutter.io/docs/get-started/codelab)
-- [Cookbook: Useful Flutter samples](https://flutter.io/docs/cookbook)
+2. Showing full list
 
-For help getting started with Flutter, view our 
-[online documentation](https://flutter.io/docs), which offers tutorials, 
-samples, guidance on mobile development, and a full API reference.
+   ![Full list](https://raw.githubusercontent.com/minhaz1217/we-rate-dogs/master/__IMAGES__/02.png)
+
+3. Gradient background
+
+   ![Gradient background](https://raw.githubusercontent.com/minhaz1217/we-rate-dogs/master/__IMAGES__/03.png)
+
+4. Separate profile for each dog
+
+   ![dog's profile](https://raw.githubusercontent.com/minhaz1217/we-rate-dogs/master/__IMAGES__/04.png)
+
+5. Add new information
+
+   ![Add new information](https://raw.githubusercontent.com/minhaz1217/we-rate-dogs/master/__IMAGES__/05.png)
+
+6. New information added
+
+   ![new information added](https://raw.githubusercontent.com/minhaz1217/we-rate-dogs/master/__IMAGES__/06.png)
+
+7. Rating system
+
+   ![rating system](https://raw.githubusercontent.com/minhaz1217/we-rate-dogs/master/__IMAGES__/07.png)
+
+8. Custom error message
+
+   ![error message](https://raw.githubusercontent.com/minhaz1217/we-rate-dogs/master/__IMAGES__/08.png)
+
+9. Input validation
+
+   ![input validation](https://raw.githubusercontent.com/minhaz1217/we-rate-dogs/master/__IMAGES__/09.png)
+
+10. Placeholder while image loads
+
+![placeholder while image loads](https://raw.githubusercontent.com/minhaz1217/we-rate-dogs/master/__IMAGES__/10.png)
+
+
+
+
+
+This is my full project, made with Flutter, Steps are noted in commits.
+
